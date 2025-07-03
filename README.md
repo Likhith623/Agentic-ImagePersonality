@@ -30,3 +30,5 @@
 - Python 3.9+
 - Google Generative AI API key (Gemini)
 - (Optional) Jupyter Notebook for interactive use
+
+### Installation
