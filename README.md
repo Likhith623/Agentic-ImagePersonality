@@ -195,11 +195,6 @@ See [`requirements.txt`](requirements.txt) for complete list.
 
 ---
 
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
----
 
 ## 🆘 Support
 
@@ -208,18 +203,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - **API Reference:** Interactive docs at `/docs` and `/redoc`
 
 ---
-
-## 🔮 Roadmap
-
-- [ ] Add more AI personalities
-- [ ] Implement user authentication
-- [ ] Add image storage options
-- [ ] Create frontend web interface
-- [ ] Add multi-language support
-- [ ] Implement response caching
-- [ ] Advanced cultural recognition
-- [ ] Emotion detection in images
-
----
-
-**Made with ❤️ using Google Gemini AI and FastAPI**
