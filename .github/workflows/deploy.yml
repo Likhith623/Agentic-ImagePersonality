@@ -9,9 +9,9 @@ env:
   PROJECT_ID: cvoapi
 
 jobs:
-  deploy:
+  build-and-install:
+    name: Build & Install Dependencies
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -26,6 +26,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+  deploy-to-cloudrun:
+    name: Deploy to Cloud Run (Prod)
+    runs-on: ubuntu-latest
+    needs: build-and-install
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
@@ -35,9 +43,15 @@ jobs:
         run: echo "GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }}" >> $GITHUB_ENV
 
       - name: Deploy to Google Cloud Run (using Buildpacks)
+        id: deploy
         uses: google-github-actions/deploy-cloudrun@v2
         with:
           service: fastapi-image-personality
           region: us-central1
           source: .
           env_vars: GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }}
+
+      - name: Show Cloud Run URL
+        run: |
+          echo "Service URL:"
+          gcloud run services describe fastapi-image-personality --region us-central1 --format 'value(status.url)'
