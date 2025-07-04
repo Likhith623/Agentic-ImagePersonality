@@ -1,4 +1,4 @@
-# 🎭 Agentic Image Personality
+# Agentic Image Personality
 
 **Agentic Image Personality** is an AI-powered FastAPI application that analyzes uploaded images and generates personalized, culturally-aware responses. The project leverages Google Gemini AI models for vision analysis and creates engaging interactions based on dynamic AI personality profiles.
 
